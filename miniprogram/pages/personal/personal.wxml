@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="profile">
+    <image class="avatar" src="{{userInfo.avatar}}" bindtap="chooseAvatar"></image>
+    <view class="name">{{userInfo.nickname}}</view>
+    <view class="class">{{userInfo.class}}</view>
+  </view>
+  <button bindtap="editProfile">修改个人信息</button>
+  <view class="container">
+    <text decode="{{true}}">Ciallo～(∠・ω &lt;)⌒★</text>
+    <text>灌注窝工喵~，灌注窝工谢谢喵~~</text>
+  </view>
+  
+  <!-- 模态框用于编辑信息 -->
+  <view class="modal" wx:if="{{isEditing}}">
+    <view class="modal-content">
+      <input type="text" placeholder="昵称" value="{{userInfo.nickname}}" bindinput="updateName" />
+      <input type="text" placeholder="班级" value="{{userInfo.class}}" bindinput="updateClassName" />
+      <button bindtap="saveProfile">保存</button>
+      <button bindtap="cancelEdit">取消</button>
+    </view>
+  </view>
+</view>

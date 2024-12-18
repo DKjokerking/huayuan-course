@@ -1,0 +1,14 @@
+<view class="container">
+  <input placeholder="帐号" bindinput="onUsernameInput" />
+  <input placeholder="密码" type="password" bindinput="onPasswordInput" />
+  <button bindtap="onLogin">登录/注册</button>
+  <view class="container">
+    <text decode="{{true}}">Ciallo～(∠・ω &lt;)⌒★</text>
+    <text>灌注窝工喵~，灌注窝工谢谢喵~~</text>
+  </view>
+</view>
+
+
+
+
+
