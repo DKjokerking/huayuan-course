@@ -1,0 +1,7 @@
+<view class="container">
+  <view wx:for="{{posts}}" wx:key="id" class="post-item" bindtap="viewPost" data-id="{{item._id}}">
+    <text>{{item.title}}</text>
+    <text class="post-content">{{item.content}}</text>
+  </view>
+  <button class="add-post-button" bindtap="addPost">发帖</button>
+</view>

@@ -1,0 +1,9 @@
+<view class="container">
+  <input placeholder="标题" bindinput="onTitleInput"/>
+  <textarea placeholder="内容" bindinput="onContentInput"></textarea>
+  <button bindtap="chooseImage">选择图片</button>
+  <view wx:for="{{images}}" wx:key="id">
+    <image src="{{item}}" mode="widthFix"></image>
+  </view>
+  <button bindtap="submitPost">发布</button>
+</view>
