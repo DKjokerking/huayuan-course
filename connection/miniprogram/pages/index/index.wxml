@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- 轮播图部分 -->
+  <swiper class="banner" indicator-dots autoplay circular interval="3000">
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image src="{{item.imageUrl}}" mode="aspectFill" bindtap="onBannerTap" data-id="{{item.id}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 服务导航网格 -->
+  <view class="grid-container">
+    <view class="grid-item" bindtap="navigateToCourses">
+      <image class="grid-icon" src="/images/course-icon.jpeg"></image>
+      <text>课程总览</text>
+    </view>
+    <view class="grid-item" bindtap="navigateToActivities">
+      <image class="grid-icon" src="/images/activity-icon.jpeg"></image>
+      <text>近期活动</text>
+    </view>
+    <view class="grid-item" bindtap="navigateToEvaluation">
+      <image class="grid-icon" src="/images/evaluation-icon.jpeg"></image>
+      <text>课程评价</text>
+    </view>
+  </view>
+
+  <!-- 热门课程推荐 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门课程</text>
+      <text class="more" bindtap="navigateToCourses">查看更多 ></text>
+    </view>
+    <scroll-view scroll-x class="course-scroll">
+      <view class="course-list">
+        <view class="course-card" wx:for="{{hotCourses}}" wx:key="id" bindtap="navigateToCourseDetail" data-id="{{item._id}}">
+          <image class="course-image" src="{{item.coverUrl}}" mode="aspectFill"></image>
+          <view class="course-info">
+            <text class="course-name">{{item.name}}</text>
+            <text class="course-teacher">{{item.teacher}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 最新活动 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">最新活动</text>
+      <text class="more" bindtap="navigateToActivities">更多活动 ></text>
+    </view>
+    <view class="activity-list">
+      <view class="activity-item" wx:for="{{recentActivities}}" wx:key="id" bindtap="navigateToActivityDetail" data-id="{{item._id}}">
+        <image class="activity-image" src="{{item.coverUrl}}" mode="aspectFill"></image>
+        <view class="activity-info">
+          <text class="activity-title">{{item.title}}</text>
+          <text class="activity-time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

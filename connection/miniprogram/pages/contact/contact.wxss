@@ -1,0 +1,134 @@
+/* pages/contact/contact.wxss */
+Page{
+  background-color: rgb(241, 241, 241);
+}
+.label{
+  width: 90%;
+  display: block;
+  margin:  0 auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #696969
+}
+.input_box{
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  line-height: 40rpx;
+  height: 300rpx;
+}
+.confirm_button{
+  width: 90% !important;
+  margin: 0 auto;
+  display: block;
+}
+.container {
+  padding: 20rpx;
+  background: #f5f5f5;
+}
+
+.header {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.contact-info {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.info-item {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 5rpx;
+}
+
+.form-section {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.form-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+textarea {
+  width: 100%;
+  height: 100rpx;
+  border-radius: 8rpx;
+  padding: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.messages-section {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 8rpx;
+}
+
+.messages-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.message-item {
+  margin-top: 10rpx;
+}
+
+.message-content {
+  width: 40%;
+  font-size: 24rpx;
+  display: inline-block;
+  margin-left: 4%;
+}
+
+.message-time {
+  width: 52%;
+  display: inline-block;
+  font-size: 20rpx;
+  color: rgb(197, 63, 63);
+  text-align: right;
+}
+.scroll_class{
+  width: 90% !important;
+  margin: 0 auto;
+  display: block;
+  background-color: #fff;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box-head {
+  flex-shrink: 0;
+}
+
+.box-scroll {
+  flex: 1;
+  height: 1px;
+}

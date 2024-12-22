@@ -1,0 +1,67 @@
+<!--pages/discussion/discussion.wxml-->
+<view class="container">
+  <!-- 顶部操作栏 -->
+  <view class="header">
+    <picker 
+      mode="selector" 
+      range="{{courses}}" 
+      range-key="name"
+      bindchange="onCourseChange"
+    >
+      <view class="course-select">
+        {{currentCourse ? courses[currentCourse].name : '全部课程'}}
+        <text class="arrow">▼</text>
+      </view>
+    </picker>
+    
+    <button class="publish-btn" bindtap="goToPublish">
+      发帖
+    </button>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="post-list">
+    <view 
+      class="post-item" 
+      wx:for="{{postList}}" 
+      wx:key="_id"
+      bindtap="goToDetail"
+      data-id="{{item._id}}"
+    >
+      <view class="post-header">
+        <image class="avatar" src="{{item.avatarUrl}}"></image>
+        <text class="nickname">{{item.nickname}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+      
+      <view class="post-content">
+        <view class="title">{{item.title}}</view>
+        <view class="content">{{item.content}}</view>
+      </view>
+      
+      <view class="post-footer">
+        <view class="stat-item">
+          <text class="icon">👁️</text>
+          <text>{{item.views}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="icon">💬</text>
+          <text>{{item.comments}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="icon">👍</text>
+          <text>{{item.likes}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+  <view class="no-more" wx:if="{{!hasMore && postList.length > 0}}">
+    没有更多了
+  </view>
+  <view class="empty" wx:if="{{!loading && postList.length === 0}}">
+    暂无帖子
+  </view>
+</view>

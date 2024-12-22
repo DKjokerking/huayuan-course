@@ -1,0 +1,7 @@
+<!-- pages/activity-detail/activity-detail.wxml -->
+<view class="container">
+  <text class="title">{{activity.title}}</text>
+  <text class="description">{{activity.description}}</text>
+  <text class="location">地点: {{activity.location}}</text>
+  <text class="time">时间: {{activity.startTime}} - {{activity.endTime}}</text>
+</view>

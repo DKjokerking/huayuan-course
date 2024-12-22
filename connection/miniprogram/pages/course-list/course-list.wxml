@@ -1,0 +1,48 @@
+<!--pages/course-list/course-list.wxml-->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input 
+      type="text" 
+      placeholder="搜索课程" 
+      bindinput="onSearch"
+      value="{{searchKey}}"
+    />
+  </view>
+
+  <!-- 课程类型选择 -->
+  <view class="type-filter">
+    <view 
+      class="type-item {{currentType === '' ? 'active' : ''}}" 
+      bindtap="onTypeChange" 
+      data-type=""
+    >全部</view>
+    <view 
+      class="type-item {{currentType === 'required' ? 'active' : ''}}" 
+      bindtap="onTypeChange" 
+      data-type="required"
+    >必修课</view>
+    <view 
+      class="type-item {{currentType === 'optional' ? 'active' : ''}}" 
+      bindtap="onTypeChange" 
+      data-type="optional"
+    >选修课</view>
+  </view>
+
+  <!-- 课程列表 -->
+  <view class="course-list">
+    <view class="course-item" wx:for="{{courseList}}" wx:key="_id">
+      <image class="course-image" src="{{item.coverUrl}}" mode="aspectFill"></image>
+      <view class="course-info">
+        <text class="course-name">{{item.name}}</text>
+        <text class="course-teacher">{{item.teacher}}</text>
+        <text class="course-desc">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+  <view class="no-more" wx:if="{{!hasMore && courseList.length > 0}}">没有更多了</view>
+  <view class="empty" wx:if="{{!loading && courseList.length === 0}}">暂无课程</view>
+</view>

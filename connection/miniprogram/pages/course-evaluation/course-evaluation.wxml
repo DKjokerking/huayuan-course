@@ -1,0 +1,115 @@
+<!--pages/course-evaluation/course-evaluation.wxml-->
+<view class="container">
+  <!-- 课程信息卡片 -->
+  <view class="course-card">
+    <view class="course-name">{{courseInfo.name}}</view>
+    <view class="course-info">
+      <text>授课教师：{{courseInfo.teacher}}</text>
+      <text>课程类型：{{courseInfo.type === 'required' ? '必修' : '选修'}}</text>
+    </view>
+    <view class="rating-box">
+      <view class="rating-score">
+        <text class="score">{{courseInfo.averageRating || '暂无'}}</text>
+        <text class="total">综合评分</text>
+      </view>
+      <view class="rating-bars">
+        <view class="bar-item" wx:for="{{ratingStats}}" wx:key="stars">
+          <text class="star-count">{{item.stars}}星</text>
+          <view class="bar-bg">
+            <view class="bar-fill" style="width:{{item.percentage}}"></view>
+          </view>
+          <text class="count">{{item.count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="evaluation-list">
+    <view class="list-header">
+      <text>全部评价 ({{total}})</text>
+      <button class="add-btn" bindtap="onAddEvaluation">写评价</button>
+    </view>
+
+    <block wx:if="{{evaluationList.length > 0}}">
+      <view class="evaluation-item" wx:for="{{evaluationList}}" wx:key="_id">
+        <view class="user-info">
+          <image class="avatar" src="{{item.avatarUrl || '/images/default-avatar.png'}}"></image>
+          <view class="user-detail">
+            <text class="nickname">{{item.nickname}}</text>
+            <text class="time">{{item.createTime}}</text>
+          </view>
+        </view>
+        <view class="rating-stars">
+          <text class="star {{idx < item.rating ? 'active' : ''}}" 
+            wx:for="{{5}}" 
+            wx:for-item="star" 
+            wx:for-index="idx" 
+            wx:key="idx">★</text>
+        </view>
+        <view class="content">{{item.content}}</view>
+        <view class="tags" wx:if="{{item.tags.length > 0}}">
+          <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+        </view>
+      </view>
+    </block>
+
+    <view class="empty" wx:if="{{!loading && evaluationList.length === 0}}">
+      暂无评价
+    </view>
+
+    <view class="loading" wx:if="{{loading}}">加载中...</view>
+  </view>
+</view>
+
+<!-- 评价弹窗 -->
+<view class="modal" wx:if="{{showModal}}">
+  <view class="modal-mask" bindtap="hideModal"></view>
+  <view class="modal-content">
+    <view class="modal-header">
+      <text>课程评价</text>
+      <text class="close" bindtap="hideModal">×</text>
+    </view>
+    <view class="modal-body">
+      <view class="rating-select">
+        <text class="label">评分</text>
+        <view class="stars">
+          <text class="star {{index < rating ? 'active' : ''}}" 
+            wx:for="{{5}}" 
+            wx:key="*this"
+            bindtap="onRatingSelect"
+            data-rating="{{index + 1}}">★</text>
+        </view>
+      </view>
+      <view class="content-input">
+        <text class="label">评价内容</text>
+        <textarea 
+          placeholder="请输入您的评价（最多500字）" 
+          maxlength="500"
+          value="{{content}}"
+          bindinput="onContentInput"
+        ></textarea>
+      </view>
+      <view class="tag-select">
+        <text class="label">标签（可多选）</text>
+        <view class="tag-list">
+          <text 
+            class="tag {{selectedTags.includes(item) ? 'active' : ''}}" 
+            wx:for="{{tagOptions}}" 
+            wx:key="*this"
+            bindtap="onTagSelect"
+            data-tag="{{item}}"
+          >{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button 
+        class="submit-btn" 
+        bindtap="submitEvaluation"
+        disabled="{{!rating || !content}}"
+        loading="{{submitting}}"
+      >提交评价</button>
+    </view>
+  </view>
+</view>

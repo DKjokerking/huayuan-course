@@ -1,0 +1,55 @@
+<!--pages/post-publish/post-publish.wxml-->
+<view class="container">
+  <!-- 标题输入 -->
+  <input 
+    class="title-input" 
+    placeholder="请输入标题" 
+    maxlength="50"
+    bindinput="onTitleInput"
+    value="{{title}}"
+  />
+
+  <!-- 内容输入 -->
+  <textarea 
+    class="content-input" 
+    placeholder="请输入内容" 
+    maxlength="2000"
+    bindinput="onContentInput"
+    value="{{content}}"
+  />
+
+  <!-- 图片上传区域 -->
+  <view class="image-upload">
+    <view class="image-list">
+      <block wx:for="{{images}}" wx:key="*this">
+        <view class="image-item">
+          <image src="{{item}}" mode="aspectFill"></image>
+          <view class="delete-btn" bindtap="deleteImage" data-index="{{index}}">×</view>
+        </view>
+      </block>
+      <view class="upload-btn" bindtap="chooseImage" wx:if="{{images.length < 9}}">
+        <text class="icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 选择课程 -->
+  <picker 
+    bindchange="onCourseSelect" 
+    range="{{courses}}" 
+    range-key="name"
+  >
+    <view class="course-select">
+      <text>选择课程</text>
+      <text class="course-name">{{selectedCourse.name || '请选择课程'}}</text>
+    </view>
+  </picker>
+
+  <!-- 发布按钮 -->
+  <button 
+    class="publish-btn" 
+    bindtap="publishPost"
+    loading="{{publishing}}"
+    disabled="{{!title || !content || !selectedCourse}}"
+  >发布</button>
+</view>

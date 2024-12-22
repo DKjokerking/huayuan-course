@@ -1,0 +1,306 @@
+/* pages/course-evaluation/course-evaluation.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 20rpx;
+}
+
+/* 课程卡片样式 */
+.course-card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.course-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.course-info {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.course-info text {
+  margin-right: 30rpx;
+}
+
+.rating-box {
+  display: flex;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.rating-score {
+  text-align: center;
+  margin-right: 40rpx;
+}
+
+.rating-score .score {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #ff9500;
+}
+
+.rating-score .total {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.rating-bars {
+  flex: 1;
+}
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.star-count {
+  width: 60rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.bar-bg {
+  flex: 1;
+  height: 16rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  margin: 0 20rpx;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #ff9500;
+  border-radius: 8rpx;
+}
+
+.count {
+  width: 60rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+}
+
+/* 评价列表样式 */
+.evaluation-list {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.add-btn {
+  background: #07c160;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 12rpx 30rpx;
+  border-radius: 30rpx;
+}
+
+.evaluation-item {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.evaluation-item:last-child {
+  border-bottom: none;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.rating-stars {
+  margin-bottom: 20rpx;
+}
+
+.star {
+  font-size: 36rpx;
+  color: #ddd;
+  margin-right: 10rpx;
+}
+
+.star.active {
+  color: #ff9500;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 24rpx;
+  color: #07c160;
+  background: rgba(7, 193, 96, 0.1);
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 弹窗样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.modal-header {
+  position: relative;
+  padding: 30rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #eee;
+}
+
+.close {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  font-size: 40rpx;
+  color: #999;
+  line-height: 1;
+}
+
+.modal-body {
+  padding: 30rpx;
+}
+
+.rating-select {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.stars {
+  text-align: center;
+}
+
+.content-input {
+  margin-bottom: 30rpx;
+}
+
+.content-input textarea {
+  width: 100%;
+  height: 200rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-list .tag {
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  background: #f8f8f8;
+  color: #666;
+}
+
+.tag-list .tag.active {
+  background: rgba(7, 193, 96, 0.1);
+  color: #07c160;
+}
+
+.modal-footer {
+  padding: 30rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.submit-btn {
+  background: #07c160;
+  color: #fff;
+}
+
+.submit-btn[disabled] {
+  background: #9be6b4;
+}
+
+/* 加载状态 */
+.loading, .empty {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+  font-size: 28rpx;
+}

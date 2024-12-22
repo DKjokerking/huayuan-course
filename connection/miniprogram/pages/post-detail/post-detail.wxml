@@ -1,0 +1,32 @@
+<!--pages/post-detail/post-detail.wxml-->
+<view class="container">
+  <view class="post-header">
+    <text class="post-title">{{post.title}}</text>
+    <text class="post-author">作者：{{post.author}}</text>
+    <text class="post-date">{{post.createTime}}</text>
+  </view>
+
+  <view class="post-content">
+    <text>{{post.content}}</text>
+  </view>
+
+  <view class="post-images" wx:if="{{post.images.length}}">
+    <image class="post-image" wx:for="{{post.images}}" wx:key="*this" src="{{item}}" mode="aspectFill"></image>
+  </view>
+
+  <view class="comments-section">
+    <view class="comments-header">
+      <text>评论 ({{comments.length}})</text>
+      <button bindtap="showCommentInput">添加评论</button>
+    </view>
+    <view class="comment-item" wx:for="{{comments}}" wx:key="id">
+      <text class="comment-author">{{item.author}}:</text>
+      <text class="comment-content">{{item.content}}</text>
+    </view>
+  </view>
+
+  <view class="comment-input" wx:if="{{showInput}}">
+    <textarea placeholder="请输入评论" bindinput="onCommentInput" value="{{commentContent}}"></textarea>
+    <button bindtap="submitComment">提交</button>
+  </view>
+</view>

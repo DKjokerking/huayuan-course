@@ -1,0 +1,49 @@
+{
+  "cloud": true,
+  "env": "scut-bkt-7gj2a5dfb4edd50d",
+  "pages": [
+    "pages/index/index",
+    "pages/discussion/discussion",
+    "pages/profile/profile",
+    "pages/contact/contact",
+    "pages/course-list/course-list",
+    "pages/activities/activities",
+    "pages/course-evaluation/course-evaluation",
+    "pages/post-detail/post-detail",
+    "pages/post-publish/post-publish"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "华园百课通",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/discussion/discussion",
+        "text": "讨论区",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联系我们",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+    ]
+  }
+}
