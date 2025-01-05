@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
     await db.collection('messages').add({
       data: {
         content, // 留言内容
-        author: wxContext.USERINFO.nickname, // 留言作者的昵称
+        author: wxContext.OPENID, // 留言作者的昵称
         createTime: db.serverDate() // 创建时间
       }
     })
